@@ -8,10 +8,27 @@
 
 <body>	
 	<script>
-		function secondHighest(arr) {
-			//Write your code here
+			function secondHighest(arr) {
+            // If the array is empty or has only one element or all elements are the same, return -Infinity
+            if (arr.length <= 1 || new Set(arr).size === 1) {
+                return -Infinity;
+            }
+
+            // Sort the array in descending order
+            arr.sort((a, b) => b - a);
+
+            // Iterate through the sorted array until finding a number different from the first element
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] !== arr[0]) {
+                    return arr[i];
+                }
+            }
+
+            // If no second-highest element is found, return -Infinity
+            return -Infinity;
+        }
 			
-		}
+		
 
 		function Main() {
 			var n = prompt("Enter the number of elements");
